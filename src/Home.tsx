@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
 
   const reloadTable = () => {
     const userList: UserType[] = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < pagination.pageSize; i++) {
       userList.push(data[i]);
     }
     setUser(userList);
@@ -67,6 +67,11 @@ export const Home: React.FC = () => {
             : ALL_USERS.length / prevstate.pageSize,
       };
     });
+    const userList: UserType[] = [];
+    for (let i = 0; i < size; i++) {
+      userList.push(data[i]);
+    }
+    setUser(userList);
   };
 
   const choosePageNumber = (pageNumber: number) => {
